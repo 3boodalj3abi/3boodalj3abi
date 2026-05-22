@@ -42,11 +42,11 @@ export default function App() {
       {/* Brand Hero Welcome Section */}
       <Hero />
 
-      {/* Brand Core Strengths / Features */}
-      <Features />
-
       {/* Fleet Showcase Cards & Filtering */}
       <Fleet onSelectVehicle={handleSelectVehicle} />
+
+      {/* Brand Core Strengths / Features */}
+      <Features />
 
       {/* Interactive Booking Calculator & Request Flow */}
       <BookingForm selectedVehicleId={selectedVehicleId} onOpenLegal={handleOpenLegal} />
