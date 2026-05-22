@@ -15,12 +15,19 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 import FloatingActions from './components/FloatingActions';
+import LegalModals from './components/LegalModals';
+import SEODirectory from './components/SEODirectory';
 
 export default function App() {
   const [selectedVehicleId, setSelectedVehicleId] = useState('');
+  const [activeLegalModal, setActiveLegalModal] = useState<'privacy' | 'terms' | 'refund' | null>(null);
 
   const handleSelectVehicle = (vehicleId: string) => {
     setSelectedVehicleId(vehicleId);
+  };
+
+  const handleOpenLegal = (type: 'privacy' | 'terms' | 'refund') => {
+    setActiveLegalModal(type);
   };
 
   return (
@@ -42,7 +49,7 @@ export default function App() {
       <Fleet onSelectVehicle={handleSelectVehicle} />
 
       {/* Interactive Booking Calculator & Request Flow */}
-      <BookingForm selectedVehicleId={selectedVehicleId} />
+      <BookingForm selectedVehicleId={selectedVehicleId} onOpenLegal={handleOpenLegal} />
 
       {/* Why Choose Us & Saudi Coverage */}
       <WhyChooseUs />
@@ -56,11 +63,17 @@ export default function App() {
       {/* Accordion FAQs & Terms */}
       <FAQ />
 
+      {/* Structured SEO Index & Directory Mapping for Saudi Regions (500+ SEO variations) */}
+      <SEODirectory />
+
       {/* Sitemap & Contact Block Footer */}
-      <Footer />
+      <Footer onOpenLegal={handleOpenLegal} />
 
       {/* Floating Speed Dials (Call & WhatsApp) */}
       <FloatingActions />
+
+      {/* Legal Info Compliance Modals (Google Ads required) */}
+      <LegalModals activeModal={activeLegalModal} onClose={() => setActiveLegalModal(null)} />
 
     </div>
   );

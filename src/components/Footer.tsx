@@ -5,7 +5,11 @@
 
 import { Bus, Mail, MapPin, Phone, MessageSquare, Shield, Milestone } from 'lucide-react';
 
-export default function Footer() {
+interface FooterProps {
+  onOpenLegal?: (type: 'privacy' | 'terms' | 'refund') => void;
+}
+
+export default function Footer({ onOpenLegal }: FooterProps) {
   const handleScrollTo = (id: string) => {
     const element = document.querySelector(id);
     if (element) {
@@ -117,15 +121,16 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 justify-end">
                 <div className="text-right">
-                  <span className="text-gray-400 text-[10px] font-sans block">المكتب الرئيسي بالرياض:</span>
+                  <span className="text-gray-400 text-[10px] font-sans block">المكتب الرئيسي:</span>
                   <a
                     href="https://maps.google.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-xs sm:text-sm font-sans hover:text-luxury-gold transition-colors"
                   >
-                    حي العليا - الرياض، المملكة العربية السعودية
+                    العليا، الرياض، المملكة العربية السعودية
                   </a>
+                  <span className="text-[10px] text-gray-400 font-sans block mt-0.5">ترخيص الهيئة العامة للنقل: 1010328901</span>
                 </div>
                 <MapPin className="w-5 h-5 text-luxury-gold shrink-0 mt-0.5" />
               </li>
@@ -134,10 +139,10 @@ export default function Footer() {
                 <div className="text-right">
                   <span className="text-gray-400 text-[10px] font-sans block">عبر الهاتف المباشر:</span>
                   <a
-                    href="tel:+966500000000"
+                    href="tel:+966537352271"
                     className="text-white text-xs sm:text-sm font-mono hover:text-luxury-gold transition-colors"
                   >
-                    +966 50 000 0000
+                    +966 53 735 2271
                   </a>
                 </div>
                 <Phone className="w-5 h-5 text-luxury-gold shrink-0 mt-0.5" />
@@ -147,12 +152,12 @@ export default function Footer() {
                 <div className="text-right">
                   <span className="text-gray-400 text-[10px] font-sans block">واتساب السريع والمباشر:</span>
                   <a
-                    href="https://wa.me/966500000000"
+                    href="https://wa.me/966537352271"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white text-xs sm:text-sm font-mono hover:text-luxury-gold transition-colors"
                   >
-                    +966 50 000 0000
+                    +966 53 735 2271
                   </a>
                 </div>
                 <MessageSquare className="w-5 h-5 text-luxury-gold shrink-0 mt-0.5" />
@@ -162,10 +167,10 @@ export default function Footer() {
                 <div className="text-right">
                   <span className="text-gray-400 text-[10px] font-sans block">البريد الإلكتروني للأعمال:</span>
                   <a
-                    href="mailto:info@luxurybus-rental.sa"
+                    href="mailto:info@xn--mgbabk7c.com"
                     className="text-white text-xs sm:text-sm font-sans hover:text-luxury-gold transition-colors"
                   >
-                    info@luxurybus-rental.sa
+                    info@xn--mgbabk7c.com
                   </a>
                 </div>
                 <Mail className="w-5 h-5 text-luxury-gold shrink-0 mt-0.5" />
@@ -181,15 +186,30 @@ export default function Footer() {
         {/* Bottom footer bar copyrights */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 flex-wrap text-center">
           <p className="text-gray-500 text-xs font-sans tracking-wide">
-            © {new Date().getFullYear()} تأجير حافلات فاخرة. جميع الحقوق محفوظة لوزارة النقل والهيئة التنظيمية بالمملكة.
+            © {new Date().getFullYear()} باصات.com. جميع الحقوق محفوظة لشركة النقل البري والخدمات السياحية المعتمدة بالمملكة.
           </p>
           
           <div className="flex gap-4 text-[10px] sm:text-xs text-gray-500">
-            <a href="#faq" className="hover:text-luxury-gold transition-colors">سياسة الخصوصية</a>
+            <button
+              onClick={() => onOpenLegal?.('privacy')}
+              className="hover:text-luxury-gold transition-colors cursor-pointer bg-transparent border-none text-right"
+            >
+              سياسة الخصوصية
+            </button>
             <span>•</span>
-            <a href="#faq" className="hover:text-luxury-gold transition-colors">الشروط والأحكام</a>
+            <button
+              onClick={() => onOpenLegal?.('terms')}
+              className="hover:text-luxury-gold transition-colors cursor-pointer bg-transparent border-none text-right"
+            >
+              الشروط والأحكام
+            </button>
             <span>•</span>
-            <a href="#booking" className="hover:text-luxury-gold transition-colors">تفاصيل الفوترة والضمان</a>
+            <button
+              onClick={() => onOpenLegal?.('refund')}
+              className="hover:text-luxury-gold transition-colors cursor-pointer bg-transparent border-none text-right"
+            >
+              سياسة الإلغاء والاسترجاع والفوترة
+            </button>
           </div>
         </div>
 

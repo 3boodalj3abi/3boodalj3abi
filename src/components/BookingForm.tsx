@@ -11,9 +11,10 @@ import { Calendar, User, Phone, MapPin, CheckSquare, Coins, Route, Send, Message
 
 interface BookingFormProps {
   selectedVehicleId: string;
+  onOpenLegal?: (type: 'privacy' | 'terms' | 'refund') => void;
 }
 
-export default function BookingForm({ selectedVehicleId }: BookingFormProps) {
+export default function BookingForm({ selectedVehicleId, onOpenLegal }: BookingFormProps) {
   // Sync selected vehicle from parent
   const [vehicleId, setVehicleId] = useState(selectedVehicleId || VEHICLES[0].id);
 
@@ -94,7 +95,7 @@ export default function BookingForm({ selectedVehicleId }: BookingFormProps) {
 يرجى تأكيد إتاحة المركبة وإرسال عروض الأسعار وتجهيز العقد الرسمي وعرضها علي عبر واتساب. شكراً لكم.`;
 
     const encodedText = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=966500000000&text=${encodedText}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=966537352271&text=${encodedText}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -144,7 +145,7 @@ export default function BookingForm({ selectedVehicleId }: BookingFormProps) {
 يرجى تأكيد إتاحة المركبة وإرسال عروض الأسعار وتجهيز العقد الرسمي وعرضها علي عبر واتساب. شكراً لكم.`;
 
     const encodedText = encodeURIComponent(message);
-    const whatsappUrl = `https://api.whatsapp.com/send?phone=966500000000&text=${encodedText}`;
+    const whatsappUrl = `https://api.whatsapp.com/send?phone=966537352271&text=${encodedText}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -214,7 +215,7 @@ export default function BookingForm({ selectedVehicleId }: BookingFormProps) {
                     <input
                       type="tel"
                       required
-                      placeholder="مثال: 0500000000"
+                      placeholder="مثال: 0537352271"
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       className={`w-full bg-luxury-navy-light border rounded-xl px-4 py-3.5 text-white font-mono text-left focus:outline-none focus:ring-2 focus:ring-luxury-gold/50 transition-all ${
@@ -358,11 +359,42 @@ export default function BookingForm({ selectedVehicleId }: BookingFormProps) {
                 {/* Clear submit */}
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-luxury-navy font-black text-base py-4 rounded-xl transition-all duration-300 shadow-[0_5px_22px_rgba(212,175,55,0.25)] flex items-center justify-center gap-2 transform active:scale-95"
+                  className="w-full bg-gradient-to-r from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-luxury-navy font-black text-base py-4 rounded-xl transition-all duration-300 shadow-[0_5px_22px_rgba(212,175,55,0.25)] flex items-center justify-center gap-2 transform active:scale-95 cursor-pointer"
                 >
                   <Send className="w-5 h-5" />
                   <span>تأكيد الإجراء والطلب الفوري</span>
                 </button>
+
+                {/* Google Ads Compliance explicit consent block */}
+                <div className="flex items-start gap-2.5 justify-end text-right text-[11px] sm:text-xs text-gray-400 mt-4 bg-white/5 p-3 rounded-xl border border-white/5">
+                  <div className="leading-relaxed">
+                    بالنقر على زر الإرسال أعلاه، تـوافق صراحةً على{' '}
+                    <button
+                      type="button"
+                      onClick={() => onOpenLegal?.('terms')}
+                      className="text-luxury-gold hover:underline font-bold bg-transparent border-none cursor-pointer p-0 inline font-sans underline"
+                    >
+                      الشروط والأحكام العامة
+                    </button>{' '}
+                    و{' '}
+                    <button
+                      type="button"
+                      onClick={() => onOpenLegal?.('privacy')}
+                      className="text-luxury-gold hover:underline font-bold bg-transparent border-none cursor-pointer p-0 inline font-sans underline"
+                    >
+                      سياسة الخصوصية
+                    </button>{' '}
+                    و{' '}
+                    <button
+                      type="button"
+                      onClick={() => onOpenLegal?.('refund')}
+                      className="text-luxury-gold hover:underline font-bold bg-transparent border-none cursor-pointer p-0 inline font-sans underline"
+                    >
+                      سياسة الإلغاء والفوترة والاسترجاع
+                    </button>{' '}
+                    الخاصة بنا. لن نستخدم أو نشارك بياناتك مطلقاً لأغراض غير مصرح بها.
+                  </div>
+                </div>
               </form>
             ) : (
               <motion.div

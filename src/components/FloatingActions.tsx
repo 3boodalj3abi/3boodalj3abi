@@ -12,7 +12,7 @@ export default function FloatingActions() {
       
       {/* WhatsApp Floating Trigger */}
       <motion.a
-        href="https://wa.me/966500000000"
+        href="https://wa.me/966537352271"
         target="_blank"
         rel="noopener noreferrer"
         whileHover={{ scale: 1.1 }}
@@ -32,7 +32,7 @@ export default function FloatingActions() {
 
       {/* Direct Call Floating Trigger */}
       <motion.a
-        href="tel:+966500000000"
+        href="tel:+966537352271"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         className="group relative flex items-center justify-center w-14 h-14 bg-gradient-to-br from-luxury-gold to-luxury-gold-dark hover:from-luxury-gold-dark hover:to-luxury-gold text-luxury-navy rounded-full shadow-[0_4px_20px_rgba(212,175,55,0.4)] transition-all cursor-pointer border border-luxury-gold-light/35"

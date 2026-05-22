@@ -1,5 +1,5 @@
 {
-  "name": "تأجير حافلات فاخرة",
+  "name": "تأجير حافلات",
   "description": "منصة احترافية وفخمة لتأجير الحافلات والباصات والفانات الفاخرة في المملكة العربية السعودية مع نظام حجز ذكي وحساب أسعار تفاعلي.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]

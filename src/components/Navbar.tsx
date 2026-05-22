@@ -87,11 +87,11 @@ export default function Navbar() {
           {/* Right Action buttons */}
           <div className="hidden sm:flex items-center gap-4">
             <a
-              href="tel:+966500000000"
+              href="tel:+966537352271"
               className="flex items-center gap-2 text-white/90 hover:text-luxury-gold text-xs font-mono transition-all duration-300 bg-white/5 hover:bg-white/10 px-3.5 py-2 rounded-lg border border-white/10"
             >
               <Phone className="h-3.5 w-3.5 text-luxury-gold animate-bounce" />
-              <span>966500000000+</span>
+              <span>+966 53 735 2271</span>
             </a>
             
             <button
@@ -148,11 +148,11 @@ export default function Navbar() {
               
               <div className="pt-4 pb-2 border-t border-white/5 flex flex-col gap-3">
                 <a
-                  href="tel:+966500000000"
+                  href="tel:+966537352271"
                   className="flex items-center justify-center gap-2 text-white/90 hover:text-luxury-gold text-sm font-mono py-3 bg-white/5 rounded-xl border border-white/10"
                 >
                   <Phone className="h-4 w-4 text-luxury-gold" />
-                  <span>966500000000+</span>
+                  <span>+966 53 735 2271</span>
                 </a>
                 
                 <button
